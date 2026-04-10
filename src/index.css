@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-nebula-bg: #05050a;
+  --color-nebula-card: #0d0d1a;
+  --color-nebula-accent: #8b5cf6;
+  --color-nebula-secondary: #ec4899;
+  --color-nebula-cyan: #06b6d4;
+  --color-nebula-border: rgba(255, 255, 255, 0.1);
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-nebula-bg text-slate-200 antialiased selection:bg-nebula-accent/30;
+    font-family: var(--font-sans);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+  }
+}
+
+.nebula-gradient {
+  background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 70%),
+              radial-gradient(circle at 0% 0%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+}
+
+.glass-panel {
+  @apply bg-nebula-card/50 backdrop-blur-xl border border-nebula-border;
+}
